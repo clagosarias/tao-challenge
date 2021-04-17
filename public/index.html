@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tao Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="scripts/app.js"></script>
+  <script type="module" src="scripts/components/user-element/user-element.js"></script>
+
+  <script type="text/javascript">
+    if (!window.Promise || !window.fetch || !window.Symbol) {
+      var loadScript = function(scriptUrl, afterCallback) {
+        var firstScriptElement = document.getElementsByTagName('script')[0];
+        var scriptElement = document.createElement('script');
+                scriptElement.type = 'text/javascript';
+                scriptElement.async = false;
+                scriptElement.src = scriptUrl;
+
+        var ieLoadBugFix = function (scriptElement, callback) {
+            if ( scriptElement.readyState == 'loaded' || scriptElement.readyState == 'complete' ) {
+                callback();
+            } else {
+                setTimeout(function() { ieLoadBugFix(scriptElement, callback); }, 100);
+            }
+        }
+
+        if ( typeof afterCallback === "function" ) {
+            if ( typeof scriptElement.addEventListener !== "undefined" ) {
+                scriptElement.addEventListener("load", afterCallback, false)
+            } else {
+                scriptElement.onreadystatechange = function(){
+                    scriptElement.onreadystatechange = null;
+                    ieLoadBugFix(scriptElement, afterCallback);
+                }
+            }
+        }
+        firstScriptElement.parentNode.insertBefore(scriptElement, firstScriptElement);
+      }
+
+      loadScript('https://cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js', function() {
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js', function() {
+          loadScript('https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.3/custom-elements-es5-adapter.js', function() {
+            loadScript('dist/app.bundle.js', function(){})
+          })
+        });
+      });
+    }
+  </script>
+
+</head>
+<body>
+  <div class="app">
+    <div class="app__header">
+      <div class="app__header__text">
+        <h1>Tao Challenge</h1>
+
+        <div class="app__header__checkbox">
+          <label class="checkbox__container">
+            <input type="checkbox" id="checkboxInput">
+            <span class="as-grid">Show as grid</span>
+            <span class="as-list">Show as list</span>
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="app__content grid" id="appContent">
+    </div>
+  </div>
+</body>
+</html>

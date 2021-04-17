@@ -1,0 +1,15 @@
+user-element {
+  background: white;
+  border-radius: 2px;
+  padding: 30px;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+
+  .user__identifier {
+    font-size: 16px;
+    line-height: 19px;
+    font-family: $font-bold;
+    text-align: center;
+  }
+}

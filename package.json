@@ -1,0 +1,39 @@
+{
+  "name": "tao-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.4.3",
+    "core-js": "^3.6.5",
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-decorators": "^7.10.4",
+    "@babel/plugin-transform-modules-amd": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/runtime": "^7.10.4",
+    "@babel/runtime-corejs2": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "jest": "^26.1.0",
+    "node-fetch": "^2.6.0",
+    "node-sass": "^5.0.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "scripts": {
+    "bundle": "npm run scss & webpack --config webpack.config.js",
+    "start": "node server.js & npm run scss:watch",
+    "test": "jest",
+    "build": "npm run test & npm run bundle",
+    "scss": "node-sass scss/index.scss public/style.css",
+    "scss:watch": "node-sass --watch scss/index.scss public/style.css"
+  },
+  "author": "Cristian Lagos",
+  "license": "ISC"
+}

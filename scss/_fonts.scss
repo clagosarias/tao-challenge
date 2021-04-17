@@ -1,0 +1,19 @@
+@font-face {
+  font-family: HelveticaNeue;
+  src: url(fonts/HelveticaNeue-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-Bold';
+  src: url(fonts/HelveticaNeue-Bold.ttf),
+       url(fonts/HelveticaNeue-Bold.woff) format('woff');
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-bold;
+}
+
+p, span, label {
+  font-family:  $font-regular;
+}
